@@ -1,0 +1,958 @@
+<html>
+	<head>
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/custom.css" />
+		<script
+	  src="https://code.jquery.com/jquery-3.4.1.min.js"
+	  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	  crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<script src="js/upload.js"></script>
+	</head>
+	<body>
+		<div class="modal fade" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title">Status</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div id="result" class="modal-body">
+		        <center><i id="loading" class="fa fa-spinner fa-spin fa-5x text-primary"></i></center>
+		        <div id="status-block">
+		        	<div id="status">
+		        	</div>
+		        	<button class="btn btn-primary" style="display: none;" id="click-details">Click for more details</button>
+		        </div>
+		        <div id="gradcam-block">
+		        	<div id="gradcam">
+		        	</div>
+		        </div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-primary">Save changes</button>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<div class="jumbotron">
+				<img src="images/header.png" class="img-fluid rounded-circle" />
+				<br />
+				<h1 align="center">Detecting Blindness </h1>
+		</div>
+		<div class="container">
+			<div class="content">
+				<div class="row">
+					<div class="col-md-12">
+						<h2> Introduction </h2>
+						<hr />
+						<blockquote>
+							<p class="p">Imagine being able to detect blindness before it happened. Millions of people suffer from diabetic retinopathy, the leading cause of blindness among working aged adults. Our goal is to build a machine learning model to speed up disease detection.</p>
+							<p class="p">More information can be found <a href="https://www.kaggle.com/c/aptos2019-blindness-detection" target="_blank">here</a></p>
+						</blockquote>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<h2> What is Diabetic retinopathy </h2>
+						<hr />
+						<blockquote>
+							<p class="p">
+							Diabetic retinopathy is the most common cause of vision loss among people with diabetes and a leading cause of blindness among working-age adults. Diabetic retinopathy is caused due to damage in the blood vessels of the retina due to chronically high levels of blood sugar. It causes blood vessels in the retina to leak fluid or hemorrhage, distorting vision. Diabetic retinopathy may progress through four stages:</p>
+							<br />
+							<ol class="p">
+								<li>Mild non-proliferative retinopathy</li>
+								<li>Moderate non-proliferative retinopathy</li>
+								<li>Severe non-proliferative retinopathy</li>
+								<li>Proliferative diabetic retinopathy</li>
+							</ol>
+						</blockquote>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<h2> What have we done?</h2>
+						<hr />
+						<blockquote>
+							<p class="p">We have tried 3 different deep learning architectures and use the best one to predict blindness.</p>
+
+							<p class="p"> They are as follows: </p>
+
+							<ol class="p">
+								<li>AlexNet</li>
+								<li>VggNet11</li>
+								<li>Deep FishNet</li>
+							</ol>
+							<br />
+							<p class="p">An overview of our architecture can be given as follows:</p>
+							<p>
+								<center><img src="images/architecture.png" class="img-fluid rounded"/></center>
+							</p>
+
+						</blockquote>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<h2>Results</h2>
+						<hr />
+						<blockquote>
+							<p class="p"> We have used F1-score as our scoring metric. The classification results can be summarized using the following confusion matrix: </p>
+							<div align=center>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=467
+ style='width:350.0pt;border-collapse:collapse;mso-yfti-tbllook:1184;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;height:15.3pt'>
+  <td width=85 rowspan=8 style='width:63.5pt;border:solid windowtext 1.0pt;
+  border-bottom:solid black 1.0pt;padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:black'>AlexNet Confusion Matrix<o:p></o:p></span></b></p>
+  </td>
+  <td width=128 colspan=2 rowspan=2 style='width:96.25pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-left-alt:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;
+  height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>Training set<o:p></o:p></span></b></p>
+  </td>
+  <td width=129 colspan=2 style='width:96.5pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>Predicted<o:p></o:p></span></b></p>
+  </td>
+  <td width=125 colspan=2 rowspan=2 style='width:93.75pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;
+  mso-border-left-alt:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;
+  height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:black'>F1 Score<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;height:15.3pt'>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>0<o:p></o:p></span></b></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>1<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;height:15.6pt'>
+  <td width=66 rowspan=2 style='width:49.6pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;
+  height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>Actual<o:p></o:p></span></b></p>
+  </td>
+  <td width=62 style='width:46.65pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>0<o:p></o:p></span></b></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>1404<o:p></o:p></span></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>50<o:p></o:p></span></p>
+  </td>
+  <td width=125 colspan=2 rowspan=2 style='width:93.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-family:"Times New Roman",serif;
+  mso-fareast-font-family:"Times New Roman";color:black'>0.93<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3;height:15.6pt'>
+  <td width=62 style='width:46.65pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>1<o:p></o:p></span></b></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>156<o:p></o:p></span></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>1319<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4;height:15.3pt'>
+  <td width=128 colspan=2 rowspan=2 style='width:96.25pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>Validation set<o:p></o:p></span></b></p>
+  </td>
+  <td width=129 colspan=2 style='width:96.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;
+  height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>Predicted<o:p></o:p></span></b></p>
+  </td>
+  <td width=63 style='width:47.05pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
+  "Times New Roman";mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;
+  color:black'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width=62 style='width:46.7pt;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;
+  height:15.3pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
+  "Times New Roman";mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;
+  color:black'>&nbsp;<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5;height:15.3pt'>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>0<o:p></o:p></span></b></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>1<o:p></o:p></span></b></p>
+  </td>
+  <td width=63 style='width:47.05pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
+  "Times New Roman";mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;
+  color:black'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width=62 style='width:46.7pt;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;
+  height:15.3pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
+  "Times New Roman";mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;
+  color:black'>&nbsp;<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6;height:15.6pt'>
+  <td width=66 rowspan=2 style='width:49.6pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;
+  height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>Actual<o:p></o:p></span></b></p>
+  </td>
+  <td width=62 style='width:46.65pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>0<o:p></o:p></span></b></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>336<o:p></o:p></span></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>15<o:p></o:p></span></p>
+  </td>
+  <td width=125 colspan=2 rowspan=2 style='width:93.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-family:"Times New Roman",serif;
+  mso-fareast-font-family:"Times New Roman";color:black'>0.92<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:7;height:15.6pt'>
+  <td width=62 style='width:46.65pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>1<o:p></o:p></span></b></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>44<o:p></o:p></span></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>338<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:8;height:15.3pt'>
+  <td width=85 rowspan=8 style='width:63.5pt;border-top:none;border-left:solid windowtext 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span class=SpellE><b><span
+  style='font-size:12.0pt;font-family:"Times New Roman",serif;mso-fareast-font-family:
+  "Times New Roman";color:black'>VggNet</span></b></span><b><span
+  style='font-size:12.0pt;font-family:"Times New Roman",serif;mso-fareast-font-family:
+  "Times New Roman";color:black'> Confusion Matrix<o:p></o:p></span></b></p>
+  </td>
+  <td width=128 colspan=2 rowspan=2 style='width:96.25pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>Training set<o:p></o:p></span></b></p>
+  </td>
+  <td width=129 colspan=2 style='width:96.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;
+  height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>Predicted<o:p></o:p></span></b></p>
+  </td>
+  <td width=125 colspan=2 rowspan=2 style='width:93.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:black'>F1 Score<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:9;height:15.3pt'>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>0<o:p></o:p></span></b></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>1<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:10;height:15.6pt'>
+  <td width=66 rowspan=2 style='width:49.6pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;
+  height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>Actual<o:p></o:p></span></b></p>
+  </td>
+  <td width=62 style='width:46.65pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>0<o:p></o:p></span></b></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>1444<o:p></o:p></span></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>10<o:p></o:p></span></p>
+  </td>
+  <td width=125 colspan=2 rowspan=2 style='width:93.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-family:"Times New Roman",serif;
+  mso-fareast-font-family:"Times New Roman";color:black'>0.95<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:11;height:15.6pt'>
+  <td width=62 style='width:46.65pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>1<o:p></o:p></span></b></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>140<o:p></o:p></span></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>1335<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:12;height:15.3pt'>
+  <td width=128 colspan=2 rowspan=2 style='width:96.25pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>Validation set<o:p></o:p></span></b></p>
+  </td>
+  <td width=129 colspan=2 style='width:96.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;
+  height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>Predicted<o:p></o:p></span></b></p>
+  </td>
+  <td width=63 style='width:47.05pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
+  "Times New Roman";mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;
+  color:black'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width=62 style='width:46.7pt;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;
+  height:15.3pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
+  "Times New Roman";mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;
+  color:black'>&nbsp;<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:13;height:15.3pt'>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>0<o:p></o:p></span></b></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>1<o:p></o:p></span></b></p>
+  </td>
+  <td width=63 style='width:47.05pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
+  "Times New Roman";mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;
+  color:black'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width=62 style='width:46.7pt;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;
+  height:15.3pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
+  "Times New Roman";mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;
+  color:black'>&nbsp;<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:14;height:15.6pt'>
+  <td width=66 rowspan=2 style='width:49.6pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;
+  height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>Actual<o:p></o:p></span></b></p>
+  </td>
+  <td width=62 style='width:46.65pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>0<o:p></o:p></span></b></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>336<o:p></o:p></span></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>15<o:p></o:p></span></p>
+  </td>
+  <td width=125 colspan=2 rowspan=2 style='width:93.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-family:"Times New Roman",serif;
+  mso-fareast-font-family:"Times New Roman";color:black'>0.93<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:15;height:15.6pt'>
+  <td width=62 style='width:46.65pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>1<o:p></o:p></span></b></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>39<o:p></o:p></span></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>343<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:16;height:15.3pt'>
+  <td width=85 rowspan=8 style='width:63.5pt;border-top:none;border-left:solid windowtext 1.0pt;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:black'>Deep <span class=SpellE>FishNet</span> Confusion Matrix<o:p></o:p></span></b></p>
+  </td>
+  <td width=128 colspan=2 rowspan=2 style='width:96.25pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>Training set<o:p></o:p></span></b></p>
+  </td>
+  <td width=129 colspan=2 style='width:96.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;
+  height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>Predicted<o:p></o:p></span></b></p>
+  </td>
+  <td width=125 colspan=2 rowspan=2 style='width:93.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:black'>F1 Score<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:17;height:15.3pt'>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>0<o:p></o:p></span></b></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>1<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:18;height:15.6pt'>
+  <td width=66 rowspan=2 style='width:49.6pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;
+  height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>Actual<o:p></o:p></span></b></p>
+  </td>
+  <td width=62 style='width:46.65pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>0<o:p></o:p></span></b></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>1434<o:p></o:p></span></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>20<o:p></o:p></span></p>
+  </td>
+  <td width=125 colspan=2 rowspan=2 style='width:93.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-family:"Times New Roman",serif;
+  mso-fareast-font-family:"Times New Roman";color:black'>0.96<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:19;height:15.6pt'>
+  <td width=62 style='width:46.65pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>1<o:p></o:p></span></b></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>100<o:p></o:p></span></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>1375<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:20;height:15.3pt'>
+  <td width=128 colspan=2 rowspan=2 style='width:96.25pt;border-top:none;
+  border-left:none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>Validation set<o:p></o:p></span></b></p>
+  </td>
+  <td width=129 colspan=2 style='width:96.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;
+  height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>Predicted<o:p></o:p></span></b></p>
+  </td>
+  <td width=63 style='width:47.05pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
+  "Times New Roman";mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;
+  color:black'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width=62 style='width:46.7pt;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;
+  height:15.3pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
+  "Times New Roman";mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;
+  color:black'>&nbsp;<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:21;height:15.3pt'>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>0<o:p></o:p></span></b></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>1<o:p></o:p></span></b></p>
+  </td>
+  <td width=63 style='width:47.05pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.3pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
+  "Times New Roman";mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;
+  color:black'>&nbsp;<o:p></o:p></span></p>
+  </td>
+  <td width=62 style='width:46.7pt;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;
+  height:15.3pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
+  "Times New Roman";mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;
+  color:black'>&nbsp;<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:22;height:15.6pt'>
+  <td width=66 rowspan=2 style='width:49.6pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt;
+  height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>Actual<o:p></o:p></span></b></p>
+  </td>
+  <td width=62 style='width:46.65pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>0<o:p></o:p></span></b></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>340<o:p></o:p></span></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>11<o:p></o:p></span></p>
+  </td>
+  <td width=125 colspan=2 rowspan=2 style='width:93.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-family:"Times New Roman",serif;
+  mso-fareast-font-family:"Times New Roman";color:black'>0.96<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:23;mso-yfti-lastrow:yes;height:15.6pt'>
+  <td width=62 style='width:46.65pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>1<o:p></o:p></span></b></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>22<o:p></o:p></span></p>
+  </td>
+  <td width=64 style='width:48.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:right;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";
+  color:#222222'>360<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+</div>
+						</blockquote>
+					</div>
+				</div>
+
+				<div class="row" id="">
+					<div class="col-md-12">
+						<h2>Upload</h2>
+						<hr />
+						<p class="p">If you upload an X-ray image of the eye, it will be able to detect if there is a risk of diabetic retinopathy.</p>
+						<div class="row">
+							<div class="col-md-4"></div>
+							<div class="col-md-4">
+								<form id="uploadAction" enctype="multipart/form-data" method="post">
+									<input type="file" name="file" id="fileInput"  class="form-control"/>
+									<br />
+									<center><button id="uploadButton" type="button" class="form-control btn btn-primary"> Upload</button></center>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr />
+		<footer class="footer">
+			<div class="jumbotron">
+				<div class="row">
+		       		<div class="col-md-4">
+		       			<center><h3>Akshay Suresh</h3></center>
+		       			<center><img src="images/akshay.jpg" class="img-fluid rounded-circle"/></center>
+		       			<br />
+		       			<center> Masters in Data Science<br /> Northeastern University</center>
+		       			<center> sures.aks@husky.neu.edu </center>
+		       		</div>
+		       		<div class="col-md-4">
+		       			<center><h3>Aswani Gollakota</h3></center>
+		       			<center><img src="images/aswani.jpg" class="img-fluid rounded-circle" /></center>
+		       			<br />
+		       			<center> Masters in Health Informatics<br /> Northeastern University</center>
+		       			<center> gollakota.a@husky.neu.edu </center>
+		       		</div>
+		       		<div class="col-md-4">
+		       			<center><h3>Amar Chheda</h3></center>
+		       			<center><img src="images/amar.jpg" class="img-fluid rounded-circle" /></center>
+		       			<br />
+		       			<center> Masters in Industrial Engineering<br /> Northeastern University</center>
+		       			<center> chheda.am@husky.neu.edu </center>
+		       		</div>
+	       		</div>
+	      	</div>
+	    </footer>
+	</body>
+	
+</html>
