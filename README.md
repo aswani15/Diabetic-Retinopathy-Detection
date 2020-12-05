@@ -21,7 +21,7 @@ We would be working with 3 neural network architectures in order to predict blin
 
 We are building a web application which, given an X-ray image, would predict if the patient is in risk of diabetic retinopathy.
 
-![Landing page](https://github.com/aswani15/Diabetic-Retinopathy-Detection/tree/master/data/landing_page.png?raw=true)
+![Landing page](https://github.com/aswani15/Diabetic-Retinopathy-Detection/tree/master/data/landing_page.png)
 
 
 
