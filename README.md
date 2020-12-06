@@ -9,7 +9,7 @@ Imagine being able to detect blindness before it happened! Diabetic retinopathy 
 
 ## Methodology
 
-We would be working with 3 neural network architectures in order to predict blindness.
+In this project I would be working with 3 neural network architectures in order to predict blindness.
 
 - AlexNet
 - VggNet
@@ -19,7 +19,7 @@ We would be working with 3 neural network architectures in order to predict blin
 
 ## Web application
 
-We are building a web application which, given an X-ray image, would predict if the patient is in risk of diabetic retinopathy.
+Iam in process of building a web application which, given an X-ray image, would predict if the patient is in risk of diabetic retinopathy.
 
 <img src="https://github.com/aswani15/Diabetic-Retinopathy-Detection/blob/master/data/DB1.png?raw=true" />
 
