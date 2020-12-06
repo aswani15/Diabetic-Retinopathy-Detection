@@ -7,7 +7,7 @@ $(document).ready(function() {
         $(".modal").modal();
         $("#loading").show();
         var form = document.getElementById('uploadAction');
-        var formData = new FormData(form);
+        var formData = new FormData(form); 
         var xhr = new XMLHttpRequest();
 
         xhr.onreadystatechange = function() {
