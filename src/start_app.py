@@ -12,7 +12,7 @@ def cleanup():
                  time.sleep(1)
                  p_sec += 1
          if p_sec >= timeout_sec:
-             p.kill() # supported from python 2.6
+             p.kill() # supported from python 3.6
      print('client and server processes cleaned up!')
 
 
