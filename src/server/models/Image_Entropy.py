@@ -8,7 +8,7 @@ import sklearn.preprocessing as sk
 from skimage.filters.rank import entropy
 from skimage.morphology import disk
 from skimage.color import rgb2gray
-from scipy.misc import toimage
+from scipy.misc import toimage 
 
 
 def get_pad_width(im, new_shape, is_rgb=True):
