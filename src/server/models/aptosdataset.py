@@ -4,6 +4,7 @@ class APTOSDataset(torch.utils.data.Dataset):
         self.root_dir = root_dir
         self.transform = transform
         
+        
     def __len__(self):
         return len(self.aptos_frame)
     
