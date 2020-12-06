@@ -24,7 +24,10 @@ We are building a web application which, given an X-ray image, would predict if 
 <img src="https://github.com/aswani15/Diabetic-Retinopathy-Detection/blob/master/data/DB1.png?raw=true" />
 
 Introduction:
-Imagine being able to detect blindness before it happened. Millions of people suffer from this condition, the leading cause of blindness among working adults. I want to design a AI Deep learning model that would help us detect the complications at an early stage and prevent permanent damage to the eyes.
+Imagine being able to detect blindness before it happened. Millions of people suffer from this condition, the leading cause 
+of blindness among working adults. I want to design a AI Deep learning model that would help us detect the complications at 
+an early stage and prevent permanent damage to the eyes.
+
 Model Building:
 
 I have tried 3 different deep learning architectures and used the best model to predict blindness.
