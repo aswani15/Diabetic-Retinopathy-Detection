@@ -7,6 +7,7 @@ import werkzeug
 import time
 from os import remove
 
+
 app = Flask(__name__)
 cors = CORS(app, resources={"*": {"origins": "*"}})
 api = Api(app)
