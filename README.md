@@ -21,8 +21,27 @@ We would be working with 3 neural network architectures in order to predict blin
 
 We are building a web application which, given an X-ray image, would predict if the patient is in risk of diabetic retinopathy.
 
-<img src="https://github.com/aswani15/Diabetic-Retinopathy-Detection/blob/master/data/landing_page.png?raw=true" />
+<img src="https://github.com/aswani15/Diabetic-Retinopathy-Detection/blob/master/data/DB1.png?raw=true" />
 
+Introduction:
+Imagine being able to detect blindness before it happened. Millions of people suffer from this condition, the leading cause of blindness among working adults. I want to design a AI Deep learning model that would help us detect the complications at an early stage and prevent permanent damage to the eyes.
+Model Building:
+
+I have tried 3 different deep learning architectures and used the best model to predict blindness.
+Deep Learning models:
+
+1.	AlexNet
+2.	VggNet11
+3.	Deep FishNet
+An overview of our architecture can be given as follows:
+
+<img src="https://github.com/aswani15/Diabetic-Retinopathy-Detection/blob/master/data/DB2.png?raw=true" />
+
+Results:
+
+I have used F1- Score as scoring metric. The prediction model result can be summarized using the following confusion matrix:
+
+<img src="https://github.com/aswani15/Diabetic-Retinopathy-Detection/blob/master/data/DB3.png?raw=true" />
 
 
 ## Initialization
