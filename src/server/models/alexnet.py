@@ -14,6 +14,7 @@ class AlexNetModel(object):
         # read the image as grayscale 
         img = cv2.imread(image_path, 0)
         img = cv2.resize(img, (224, 224))
+        
 
         
         trans = transforms.Compose([transforms.ToTensor(), transforms.Normalize(
